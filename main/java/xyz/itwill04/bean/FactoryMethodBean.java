@@ -1,6 +1,6 @@
 package xyz.itwill04.bean;
 
-//싱글톤 디자인 패턴이 적용된 클래스 - 싱글톤 클랫(Singleton Class)
+//싱글톤 디자인 패턴이 적용된 클래스 - 싱글톤 클래스(Singleton Class)
 public class FactoryMethodBean {
 	private static FactoryMethodBean _bean;
 	

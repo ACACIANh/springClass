@@ -19,7 +19,7 @@ public class CreateBeanApp {
 		ApplicationContext context=new ClassPathXmlApplicationContext("04-1_beanCreate.xml");
 		//Spring Container 생성 후 - Bean Configuration File 읽은 후 
 		System.out.println("========== Spring Container 초기화 후 ==========");
-		//DL(Dependency Lookup) : Spring Container에게 필요한 Spring Bean를 검색하여 제공받는 방법
+		//DL(Dependency Lookup) : Spring Container에게 필요한 Spring Bean를 검색하여 제공받는 기능
 		//ApplicationContext.getBean(String beanName) : beanName를 전달하여 Spring Container로부터
 		//Spring Bean를 검색하여 반환하는 메소드
 		// => Object 타입으로 Spring Bean를 반환하므로 명시적 객체 형변환하여 사용
