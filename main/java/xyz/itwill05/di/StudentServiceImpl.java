@@ -67,7 +67,7 @@ public class StudentServiceImpl implements StudentService {
 	//DAO 클래스의 부모 인터페이스를 이용하여 필드를 선언하면 필드에는 모든 자식 클래스로
 	//생성된 객체를 전달받아 저장 - 의존관계
 	// => 인터페이스 필드로 메소드를 호출하면 필드에 저장된 자식클래스 객체의 메소드 호출 - 오버라이드에 의한 다형성 
-	// => 객체간의 결합도 낮추어 유지보수의 효율성 증가 - 자식클래스의 객체가 변경돼도 클래스에 미치는 영향 최소화
+	// => 객체간의 결합도 낮추어 유지보수의 효율성 증가 - 포함 관계의 클래스가 변경돼도 현재 클래스에 미치는 영향 최소화
 	private StudentDAO studentDAO; 
 	
 	public StudentServiceImpl() {

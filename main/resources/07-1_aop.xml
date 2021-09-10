@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 핵심관심모듈이 선언된 클래스를 Spring Bean으로 등록 -->
+	<bean class="xyz.itwill07.aop.StudentDAOImpl" id="studentDAO"/>
+	<bean class="xyz.itwill07.aop.StudentServiceImpl" id="studentService">
+		<property name="studentDAO" ref="studentDAO"/>
+	</bean>
+	
+	<!-- 횡단관심모듈이 선언된 클래스를 Spring Bean으로 등록 -->
+	<bean class="xyz.itwill07.aop.StudentAdvice" id="studentAdvice"/>
+	
+	<!-- config : Spring AOP 기능(AspectJ)을 구현하기 위한 상위 엘리먼트 -->
+	<aop:config>
+		<!-- aspect : 핵심관심모듈에 횡단관심모듈을 원하는 위치(JoinPoint)에 삽입하여
+		실행되도록 설정하는 엘리먼트 -->
+		<!-- => 핵심관심모듈을 PointCut를 사용하여 타겟메소드로 설정 -->
+		<!-- ref 속성 : 횡단관심모듈이 선언된 Spring Bean의 beanName를 속성값으로 설정 -->
+		<aop:aspect ref="studentAdvice">
+			<!-- before : 핵심관심모듈 앞에 횡단관심모듈을 삽입하기 위한 엘리먼트 - JoinPoint -->
+			<!-- method 속성 : 횡단관심모듈 중 삽입될 메소드명을 속성값으로 설정 -->
+			<!-- pointcut 속성 : execution 또는 within 중 하나를 속성값으로 설정 -->
+			<!-- => 핵심관심모듈 중 원하는 메소드를 타겟메소드로 지정하기 위한 정보를 속성값으로 설정 -->
+			<!-- => execution 속성값 : PointCut 표현식으로 타겟메소드으로 지정 -->
+			<!-- => within 속성값 : 클래스(Spring Bean)의 모든 메소드를 타겟메소드를 지정  -->
+			<aop:before method="beforeLog" pointcut="execution(* *(..))"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
+
+
+
+
+
+
+
+
+

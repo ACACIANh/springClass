@@ -85,7 +85,7 @@
 	
 	<!-- 매개변수가 선언된 생성자를 이용하여 Spring Bean 객체 생성 -->
 	<!-- => 생성자 매개변수에 객체(Spring Bean)를 전달하여 포함(의존)관계 구현 - Constructor Injection -->
-	<!-- ref 속성 : 매개변수에 전달할 Spring Bean의 beanName를 속성값으로 설정 - Dependency Injection(의존관계 주입) -->
+	<!-- ref 속성 : 매개변수에 전달할 Spring Bean 객체의 beanName를 속성값으로 설정 - Dependency Injection(의존관계 주입) -->
 	<!--  
 	<bean class="xyz.itwill05.di.StudentServiceImpl" id="studentServiceImpl">
 		<constructor-arg ref="studentJdbcDAO"/>

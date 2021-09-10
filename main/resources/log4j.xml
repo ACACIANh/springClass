@@ -90,6 +90,10 @@
 		<appender-ref ref="deilyLogFile"/>
 	</logger>
 
+	<logger name="xyz.itwill07.aop">
+		<level value="info" />
+	</logger>
+
 	<!-- Root Logger -->
 	<!-- root : 최상위 기록 정보(Logger)를 설정하기 위한 엘리먼트 -->
 	<!-- => 모든 패키지의 클래스에 기본적으로 적용되는 기록 정보 -->
