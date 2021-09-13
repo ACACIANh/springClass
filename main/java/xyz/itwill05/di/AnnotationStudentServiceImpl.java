@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 //=> 기본적으로 클래스명을 beanName으로 설정하며 value 속성을 사용하여 beanName 변경 가능
 @Service("studentService")
 public class AnnotationStudentServiceImpl implements StudentService {
-	//@Autowired : Spring Bean 객체로 필드에 의존관계를 자동으로 설정하는 기능을 제공하는 어노테이션
+	//@Autowired : 필드에 Spring Bean 객체로 의존관계를 자동으로 설정하는 기능을 제공하는 어노테이션
 	// => 필드의 Setter 메소드를 선언하지 않아도 Setter Injection 기능 제공
 	// => bean 엘리먼트에 autowire 속성의 [byType] 속성값과 동일한 방법으로 의존관계 설정
 	//문제점)필드의 자료형이 인터페이스라면 자식클래스로 Spring Bean이 여러개인 등록된 경우

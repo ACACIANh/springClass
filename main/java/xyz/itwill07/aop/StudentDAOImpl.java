@@ -21,6 +21,7 @@ public class StudentDAOImpl implements StudentDAO {
 	@Override
 	public List<Student> selectStudentList() {
 		System.out.println("*** StudentDAOImpl 클래스의 selectStudentList() 메소드 호출 *** ");
+		//throw new RuntimeException();
 		return null;
 	}
 }

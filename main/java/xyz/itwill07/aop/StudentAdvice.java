@@ -1,5 +1,6 @@
 package xyz.itwill07.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,4 +17,43 @@ public class StudentAdvice {
 	public void beforeLog() {
 		logger.info("[before]핵심관심코드 동작 전 삽입되어 실행될 횡단관심코드");
 	}
+	
+	//타겟메소드 동작 후 삽입되어 실행될 명령을 작성하기 위한 메소드
+	// => 타겟메소드에서 발생되는 예외와 상관없이 무조건 삽입되어 실행
+	// => JoinPoint : After Advice
+	public void afterLog() {
+		logger.info("[after]핵심관심코드 동작 후 무조건 삽입되어 실행될 횡단관심코드");
+	}
+	
+	//타겟메소드 동작 후 삽입되어 실행될 명령을 작성하기 위한 메소드
+	// => 타겟메소드에서 예외가 발생되지 않은 경우에만 삽입되어 실행
+	// => JoinPoint : After Returning Advice
+	public void afterReturningLog() {
+		logger.info("[after-returning]핵심관심코드 정상 동작 후 삽입되어 실행될 횡단관심코드");
+	}
+	
+	//타겟메소드 동작 후 삽입되어 실행될 명령을 작성하기 위한 메소드
+	// => 타겟메소드에서 예외가 발생된 경우에만 삽입되어 실행
+	// => JoinPoint : After Throwing Advice
+	public void afterThrowingLog() {
+		logger.info("[after-throwing]핵심관심코드 동작시 예외가 발생된 후 삽입되어 실행될 횡단관심코드");
+	}
+	
+	//타겟메소드 동작 전후 삽입되어 실행될 명령을 작성하기 위한 메소드
+	// => JoinPoint : Around Advice
+	public Object aroundLog(ProceedingJoinPoint joinPoint) throws Throwable {
+		logger.info("[around]핵심관심코드 동작 전 삽입되어 실행될 횡단관심코드");
+		Object object=joinPoint.proceed();//타겟메소드 호출 - 핵심관심코드 실행
+		logger.info("[around]핵심관심코드 동작 후 삽입되어 실행될 횡단관심코드");
+		return object;
+	}
 }
+
+
+
+
+
+
+
+
+
