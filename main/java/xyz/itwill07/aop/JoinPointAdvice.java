@@ -8,12 +8,12 @@ public class JoinPointAdvice {
 	//Around Advice 메소드를 제외한 나머지 Advice 메소드는 반환형을 void로 작성하고 매개변수를 
 	//미작성 하거나 JoinPoint 자료형으로 하는 매개변수 작성 가능
 	//JoinPoint : 타겟메소드(핵심관심모듈)의 정보를 저장하기 위한 객체
-	// => Spring Container가 Advice 메소드를 호출할 때 타겟메소드의 정보가 자동으로 JoinPoint 매개변수에 저장 
+	// => Spring Container가 Advice 메소드를 호출할 때 타겟메소드의 정보(JoinPoint 객체)가 자동으로 매개변수에 저장 
 	// => Advice 메소드(횡단관심코드)에서 타겟메소드의 정보가 필요한 경우 JoinPoint 매개변수 작성
 	public void displayTarget(JoinPoint joinPoint) {//before Advice
 		//System.out.println("[before]핵심관심모듈 동작 전 삽입되어 실행될 횡단관심모듈");
 		
-		//JoinPoint.getTarget() : 타겟메소드를 호출하는 객체(Spring Bean)를 반환하는 메소드
+		//JoinPoint.getTarget() : 타겟메소드를 호출하는 Spring Bean 객체를 반환하는 메소드
 		// => 타겟메소드가 선언된 클래스의 객체를 Object 타입으로 반환
 		//Object.getClass() : 객체에 대한 클래스 정보(Class 객체 - Clazz)를 반환하는 메소드
 		//Class.getName() : Class 객체(Clazz)의 클래스명(패키지 포함)을 반환하는 메소드
@@ -46,7 +46,7 @@ public class JoinPointAdvice {
 	
 	//After Returning Advice 메소드에는 JoinPoint 매개변수와 Object 매개변수 작성 가능
 	// => Object 매개변수에는 타겟메소드의 반환값을 전달받아 저장
-	// => 타겟메소드 반환값의 자료형이 고정된 경우 Object 타입 대신 반환값의 자료형(클래스)으로 작성 가능
+	// => 타겟메소드가 고정된 경우 Object 타입 대신 타겟메소드의 반환값에 대한 자료형(클래스)으로 매개변수 작성
 	//after-returning 엘리먼트의 returning 속성에 매개변수명을 속성값으로 반드시 설정해야만
 	//타겟메소드의 반환값이 매개변수에 전달되어 저장
 	public void displayName(Object object) {//After Returning Advice
