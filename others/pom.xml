@@ -172,7 +172,7 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
-		<!-- => JDBC 기능을 구현하기 Oracle Driver 라이브러리 -->
+		<!-- => JDBC 기능을 구현하기 위한 Oracle Driver 라이브러리 -->
 		<dependency>
 		    <groupId>com.oracle.database.jdbc</groupId>
 		    <artifactId>ojdbc11</artifactId>
