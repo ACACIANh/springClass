@@ -51,7 +51,7 @@ public class StudentDAOImpl implements StudentDAO {
 			String sql="select * from student where no=?";
 			//JdbcTemplate.queryForObject(String sql, RowMapper<T> rowMapper, Object... args)
 			// => SQL 명령(SELECT)을 DBMS 서버에 전달하여 실행하는 메소드
-			// => 단일행의 검색결과를 제네릭으로 설정한 객체로 반환할 경우 사용하는 메소드
+			// => 단일행의 검색결과를 RowMapper의 제네릭으로 설정한 객체로 반환할 경우 사용하는 메소드
 			// => SQL 명령, RowMapper 객체(매핑정보), InParameter의 전달값을 매개변수에 전달하여 메소드 호출
 			// => RowMapper 객체를 전달받아 검색결과를 Java 객체(제네릭)로 매핑하여 반환
 			// => InParameter 전달값은 매개변수를 이용하여 차례대로 전달하여 저장
