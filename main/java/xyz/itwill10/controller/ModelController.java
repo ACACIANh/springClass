@@ -31,7 +31,7 @@ public class ModelController {
 		return "model_display3";
 	}
 	
-	//@ModelAttribute : 어노테이션이 메소드에 선언된 경우 현재 Controller 클래스에 선언된
+	//@ModelAttribute : 메소드에 선언한 어노테이션인 경우 현재 Controller 클래스에 선언된
 	//모든 요청 처리 메소드의 뷰페이지에게 반환값(객체)을 사용하도록 제공하기 위한 어노테이션
 	//value(name) 속성 : 뷰페이지에서 반환값을 사용하기 위한 속성명을 속성값으로 설정
 	// => 다른 속성이 없는 경우 속성값만 설정 가능 

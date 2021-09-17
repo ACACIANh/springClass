@@ -2,6 +2,8 @@
 <web-app version="2.5" xmlns="http://Java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- web.xml : WAS 실행시 프로젝트의 자원을 컨텍스트로 생성하기 위한 정보를 제공하는 파일 -->
+	<!-- => 리스너 설정, 필터 설정, 서블릿 설정, 에러 페이지 설정 등 -->
 
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<!-- context-param : 컨텍스트에 존재하는 모든 클래스에 값을 제공하기 위한 엘리먼트 -->
@@ -25,8 +27,27 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<!-- filter : 필터 클래스를 필터로 등록하는 엘리먼트 -->
+	<!-- Filter 클래스 : 웹프로그램 실행 전후에 동작될 명령을 제공하는 클래스 -->
+	<!-- CharacterEncodingFilter : Spring Framework에서 제공하는 필터 클래스 중 하나로 요청 
+	처리 전 리퀘스트 메세지의 캐릭터셋를 변경하는 클래스 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	
+	<!-- filter-mapping : 필터가 적용되기 위해 URL 주소의 패턴을 설정하는 엘리먼트 -->
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<!-- Processes application requests -->
-	<!-- servlet : 클래스를 서블릿(웹프로그램)으로 등록하는 엘리먼트 -->
+	<!-- servlet : 서블릿 클래스를 서블릿(웹프로그램)으로 등록하는 엘리먼트 -->
 	<!-- => DispatcherServlet 클래스(Front Controller)를 웹프로그램으로 등록되도록 설정 -->
 	<!-- => servlet 엘리먼트를 이용하여 Front Controller 역활의 웹프로그램을 여러개 등록 가능 -->
 	<servlet>
