@@ -28,7 +28,7 @@
 			<td><input type="text" name="email" value="${mem.email }"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><button type="submit">회원가입</button>
+			<td colspan="2"><button type="submit">회원가입</button></td>
 		</tr>
 	</table>
 	</form>

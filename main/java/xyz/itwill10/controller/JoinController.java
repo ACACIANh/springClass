@@ -35,7 +35,7 @@ public class JoinController {
 	//메소드의 뷰페이지에 자동으로 제공
 	// => 매개변수의 이름과 같은 이름이 전달값이 없어도 400 에러 미발생
 	// => 매개변수의 자료형이 기본형(Wrapper) 또는 문자열(String)인 경우 value 속성을 반드시 설정
-	//value 속성 : 뷰페이지에서 매개변수에 저장된 값을 제공하는 속성명을 속성값으로 설정
+	//value 속성 : 뷰페이지에게 매개변수에 저장된 값을 제공하는 속성명을 속성값으로 설정
 	// => 다른 속성이 없는 경우 속성값만 설정 가능
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(@ModelAttribute(value="id") String id
