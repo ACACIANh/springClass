@@ -62,6 +62,8 @@
 	<!-- => 패키지에 작성된 클래스의 어노테이션을 Spring Container가 처리 -->
 	<!-- <context:component-scan base-package="xyz.itwill.controller" /> -->
 	<context:component-scan base-package="xyz.itwill10.controller" />
+	<context:component-scan base-package="xyz.itwill10.dao" />
+	<context:component-scan base-package="xyz.itwill10.service" />
 </beans:beans>
 
 

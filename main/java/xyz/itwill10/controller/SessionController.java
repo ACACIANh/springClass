@@ -38,7 +38,7 @@ public class SessionController {
 		//회원정보를 검색하여 반환받아 저장 - Service 클래스의 메소드 호출
 		Hewon hewon=getHewon("abc123");
 		
-		//Model 객체를 이용하여 뷰페에지에 검색 회원정보 제공 - Request Scope
+		//Model 객체를 이용하여 뷰페이지에 검색된 회원정보 제공 - Request Scope
 		//model.addAttribute("hewon", hewon);
 		//Model.addAttribute(Object attributeValue) : 뷰 페이지에 제공되는 객체의 속성명(attributeName)이
 		//생략된 경우 객체(속성값)의 클래스명을 속성명으로 자동 설정 - 첫번째 문자는 소문자로 변환
