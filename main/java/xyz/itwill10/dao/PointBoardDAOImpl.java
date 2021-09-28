@@ -33,7 +33,4 @@ public class PointBoardDAOImpl implements PointBoardDAO {
 	public List<PointBoard> selectPointBoardList() {
 		return sqlSession.getMapper(PointBoardMapper.class).selectPointBoardList();
 	}
-
-	
-	
 }

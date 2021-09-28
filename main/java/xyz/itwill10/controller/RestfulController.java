@@ -2,11 +2,13 @@ package xyz.itwill10.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import xyz.itwill10.dto.Member;
@@ -81,6 +83,20 @@ public class RestfulController {
 		memberList.add(member2);
 		
 		return memberList;
+	}
+	
+	@RequestMapping(value = "/map", method = RequestMethod.GET)
+	public String input() {
+		return "rest/input";
+	}
+	
+	//매개변수의 자료형을 Map으로 선언하면 모든 전달값을 Map 객체의 엔트리(Key:이름,Value:전달값)로 
+	//제공받아 저장 - @RequestParam 어노테이션을 반드시 사용하여 선언
+	// => JavaBean(DTO) 클래스가 없는 경우 Map 객체를 이용하여 전달값을 제공 받거나 응답 처리 
+	@RequestMapping(value = "/map", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> output(@RequestParam Map<String,String> map) {
+		return map;
 	}
 }
 
