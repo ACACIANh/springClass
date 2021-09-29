@@ -24,6 +24,9 @@ import xyz.itwill10.util.Pager;
 // => RequestMethod 자료형(Enum)의 상수를 이용하여 표현
 // => GET(검색), POST(저장), PUT(전체 변경), PATCH(부분 변경), DELETE(삭제) 등
 @Controller
+//@RestController : 모든 요청 처리 메소드의 반환값으로 응답되도록 설정하는 어노테이션
+// => 요청 처리 메소드에서 @ResponseBody 어노테이션을 사용하지 않아도 메소드 반환값으로 응답 처리
+// => Rest 서비스를 제공하는 컨트롤러 클래스를 작성할 경우 사용
 public class RestBoardController {
 	@Autowired
 	private RestBoardService restBoardService;

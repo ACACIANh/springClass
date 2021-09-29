@@ -228,6 +228,101 @@
 		$(".insert").val("");
 		$("#insertDiv").hide();
 	});
+	
+	//게시글의 [변경]을 클릭한 경우 호출되는 이벤트 핸들러 함수
+	function modify(num) {
+		//alert("num = "+num);
+		
+		$(".insert").val("");
+		$("#insertDiv").hide();
+		
+		$("#updateDiv").show(300);
+	
+		//글번호를 전달하여 게시글을 반환받아 입력태그에 초기값으로 설정
+		$.ajax({
+			type: "get",
+			url: "board_view/"+num,
+			dataType: "json",
+			success: function(json) {
+				$("#updateNum").val(json.num);
+				$("#updateWriter").val(json.writer);
+				$("#updateContent").val(json.content);
+			}, 
+			error: function(xhr) {
+				alert("에러코드 = "+xhr.status);
+			}
+		});
+	}
+	
+	$("#updateBtn").click(function() {
+		var num=$("#updateNum").val();
+		var writer=$("#updateWriter").val();
+		var content=$("#updateContent").val();
+		
+		if(writer=="") {
+			alert("작성자를 입력해 주세요.");
+			return;
+		}
+		
+		if(content=="") {
+			alert("내용을 입력해 주세요.");
+			return;
+		}
+		
+		//게시글 변경을 위한 웹프로그램을 요청하여 응답 처리
+		$.ajax({
+			type: "put",
+			url: "board_modify",
+			contentType: "application/json",
+			data: JSON.stringify({"num":num,"writer":writer,"content":content}),
+			dateType: "text",
+			success: function(text) {
+				if(text=="success") {
+					$(".update").val("");
+					$("#updateDiv").hide();
+					boardDisplay(page);
+				}
+			}, 
+			error: function(xhr) {
+				alert("에러코드 = "+xhr.status);
+			}
+		});
+	});
+	
+	$("#cancelUpdateBtn").click(function() {
+		$(".update").val("");
+		$("#updateDiv").hide();
+	});
+	
+	//게시글의 [삭제]을 클릭한 경우 호출되는 이벤트 핸들러 함수
+	function remove(num) {
+		if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
+			$.ajax({
+				type: "delete",
+				url: "board_remove/"+num,
+				dataType: "text",
+				success: function(text) {
+					if(text=="success") {
+						boardDisplay(1);
+					}
+				}, 
+				error: function(xhr) {
+					alert("에러코드 = "+xhr.status);
+				}
+			});
+		}
+	}
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
