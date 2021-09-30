@@ -1,6 +1,6 @@
 package xyz.itwill10.exception;
 
-//로그인 대한 인증 실패를 위해 작성된 예외클래스
+//로그인 인증 실패를 위해 작성된 예외클래스
 public class LoginAuthFailException extends Exception {
 	private static final long serialVersionUID = 1L;
 

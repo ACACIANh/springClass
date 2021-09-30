@@ -194,12 +194,3 @@ public class UserinfoController {
 		return "userinfo/user_error";
 	}
 }
-
-
-
-
-
-
-
-
-
